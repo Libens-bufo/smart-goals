@@ -50,7 +50,7 @@ app.post('/addGoal', async (req, res) => {
 })
 
 
-//Listen on port
+//Listen on port in process.env
 app.listen(PORT, console.log(`Listening on port ${PORT}`))
  
     

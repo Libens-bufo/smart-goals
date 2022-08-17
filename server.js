@@ -3,6 +3,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 
+
 const PORT = process.env.PORT || 3000
 
 let db,
@@ -38,13 +39,18 @@ app.get('/',async (request, response)=>{
     
 })
 
-app.post('/addGoal', (req, res) => {
+app.post('/addGoal', async (req, res) => {
     try {
-        
+        await db.collection('goalColl').insertOne({goal: req.body.goalItem})
+        console.log('Goal Added')
+        res.redirect('/')
     } catch (err) {
         console.log(err)
     }
 })
+
+
+//Listen on port
 app.listen(PORT, console.log(`Listening on port ${PORT}`))
  
     

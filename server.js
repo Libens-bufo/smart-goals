@@ -20,7 +20,7 @@ const connectDB = async () => {
     console.log(err)
   }
 }
-connectDB()
+connectDB() // Move to separate file
 
 app.set('view engine', 'ejs')                   
 app.use(express.static('public'))               
